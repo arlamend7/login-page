@@ -1,10 +1,14 @@
 <div class="container-fluid p-0 h-100">
   <div class="h-100">
-    <img
-      src="assets/secury.gif"
-      style="background-size: cover"
-      class="h-100 w-100"
-    />
+    <div
+    style="
+        background-image: url(assets/{{image}});
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-clip: content-box;
+    "
+    class="h-100"
+></div>
     <div class="card-img-overlay">
       <div class="row h-100">
         <div class="col-sm-6 col-md-4 col-lg-6"></div>
@@ -144,8 +148,8 @@
       </div>
     </div>
   </div>
-  <div class="mt-3 d-flex justify-content-start">
-    <h6 class="text-muted p-0 mt-2">
+  <div class="mt-2 d-flex justify-content-start">
+    <h6 class="text-muted p-0">
       Already have?
       <a class="text-danger" style="cursor: pointer" (click)="animar('login')"
         >Signin</a

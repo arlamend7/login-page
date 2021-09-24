@@ -21,6 +21,18 @@ export class LoginComponent implements OnInit {
   tela: TemplateRef<HTMLDivElement>;
   linkRedirect: string;
 
+  get Image() {
+    const obj = {
+      0: "secury.gif",
+      1: "secury.gif",
+      2: "players.gif",
+      3: "mario.gif",
+      4: "house.gif",
+    };
+    var value = Math.round(Math.random() * 4);
+    return obj[value];
+  }
+  image: string = this.Image;
   constructor(private readonly activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
