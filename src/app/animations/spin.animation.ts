@@ -10,34 +10,34 @@ class AnimationCustom {
     }
 }
 export var spin = new AnimationCustom({
-    tempoAction : 1000,
+    tempoAction : 700,
     metaData:[
         animate(
-          "500ms ease-in",
+          "350ms ease-in",
           style({
             transform: "scale(1.1)",
           })
         ),
         animate(
-          "500ms ease",
+          "350ms ease",
           style({
             transform: "rotateY(90deg) scale(1.2)",
           })
         ),
         animate(
-          "600ms",
+          "100ms",
           style({
             transform: "rotateY(90deg)  scale(1.2)",
           })
         ),
         animate(
-          "500ms ease",
+          "350ms ease",
           style({
             transform: "rotateY(0deg) scale(1.1)",
           })
         ),
         animate(
-          "500ms ease-out",
+          "350ms ease-out",
           style({
             transform: "rotateY(0deg) scale(1)",
           })

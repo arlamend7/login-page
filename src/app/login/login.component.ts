@@ -5,24 +5,29 @@ import {
   transition,
   trigger,
 } from "@angular/animations";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { spin } from "src/app/animations/spin.animation";
 
 @Component({
   templateUrl: "login.component.html",
-  animations: [
-    trigger("photoState", [
-      transition("* => *", spin.metaData),
-    ]),
-  ],
+  animations: [trigger("photoState", [transition("* => *", spin.metaData)])],
 })
 export class LoginComponent implements OnInit {
+  @ViewChild("forgot", { static: false }) forgot: TemplateRef<HTMLDivElement>;
+  @ViewChild("newUser", { static: false }) newUser: TemplateRef<HTMLDivElement>;
+  @ViewChild("login", { static: false }) login: TemplateRef<HTMLDivElement>;
+
+  tela: TemplateRef<HTMLDivElement>;
   linkRedirect: string;
+
   constructor(private readonly activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.getLinkRedirect();
+    setTimeout(() => {
+      this.tela = this.login;
+    });
   }
 
   getLinkRedirect() {
@@ -32,9 +37,9 @@ export class LoginComponent implements OnInit {
   }
   carregando = false;
 
-  animation2 = true;
-  animar() {
-    this.animation2 = !this.animation2;
-    setTimeout(() => console.log("teste"),spin.tempoAction)
+  animation = true;
+  animar(nomeTela: string) {
+    this.animation = !this.animation;
+    setTimeout(() => (this.tela = this[nomeTela]), spin.tempoAction);
   }
 }
