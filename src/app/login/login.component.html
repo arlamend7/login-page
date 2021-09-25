@@ -2,13 +2,13 @@
   <div class="h-100">
     <div
     style="
-        background-image: url(assets/{{image}});
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-clip: content-box;
+    background-image: url(assets/{{ image }});
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-clip: content-box;
     "
-    class="h-100"
-></div>
+      class="h-100"
+    ></div>
     <div class="card-img-overlay">
       <div class="row h-100">
         <div class="col-sm-6 col-md-4 col-lg-6"></div>
@@ -72,7 +72,7 @@
       <button
         type="button"
         class="btn btn-danger shadow bt-login"
-        (click)="carregando = !carregando"
+        (click)="SignIn()"
       >
         <span *ngIf="!carregando">Login</span>
         <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>
@@ -103,7 +103,7 @@
       <button
         type="button"
         class="btn btn-danger shadow bt-login"
-        (click)="carregando = !carregando"
+        (click)="Forgot()"
       >
         <span *ngIf="!carregando">Reset it</span>
         <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>
@@ -161,7 +161,7 @@
       <button
         type="button"
         class="btn btn-danger shadow bt-login"
-        (click)="carregando = !carregando"
+        (click)="CreateUser()"
       >
         <span *ngIf="!carregando">Register</span>
         <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>

@@ -3,10 +3,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "src/app/login/login.component";
 
 const rotas: Routes = [
-    {
-      path: "login",
-      component: LoginComponent,
-    },
+  {
+    path: "login",
+    component: LoginComponent,
+  },
   {
     path: "",
     pathMatch: "full",
