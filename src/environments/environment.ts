@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  emailCredencial: "smtps://dev.arlamend7@gmail.com:"+encodeURIComponent('Arl@n123') + "@smtp.gmail.com:465"
 };
 
 /*

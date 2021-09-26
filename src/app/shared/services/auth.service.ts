@@ -4,17 +4,24 @@ import {
     UserCredential,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
-    sendPasswordResetEmail
+    sendPasswordResetEmail,
+    sendEmailVerification,
+    signInWithPopup,
+    signInWithCustomToken,
+    GoogleAuthProvider,
+    Auth,
+    AuthProvider
 } from "firebase/auth";
 
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-    auth
+    auth: Auth
     constructor() {
         this.auth = getAuth()
     }
-    SignIn(email: string, senha: string) {
+
+    async SignIn(email: string, senha: string) {
         return signInWithEmailAndPassword(this.auth, email, senha).then(
             (userCredential: UserCredential) => {
                 const user = userCredential.user;
@@ -22,16 +29,30 @@ export class AuthService {
             }
         );
     }
-    CreateUser(email: string, senha: string) {
+    async CreateUser(email: string, senha: string) {
         return createUserWithEmailAndPassword(this.auth, email, senha)
             .then(
                 (userCredential: UserCredential) => {
                     const user = userCredential.user;
-                    console.log(user.uid);
+                    sendEmailVerification(user).then(() => {
+
+                    })
                 }
             )
     }
     Forgot(email: string) {
         return sendPasswordResetEmail(this.auth, email)
+    }
+    alreadyLogin(token: string) {
+        signInWithCustomToken(this.auth, token)
+        .then((userCredential: UserCredential) => {
+            const user = userCredential.user;
+        })
+    }
+    popUpLogin(authProvider : AuthProvider) {
+        signInWithPopup(this.auth, authProvider)
+        .then((userCredential: UserCredential) => {
+            const user = userCredential.user;
+        })
     }
 }

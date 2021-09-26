@@ -1,0 +1,82 @@
+<ng-container
+  [ngTemplateOutlet]="isAuthenticated ? resetPassword  : forgot"
+></ng-container>
+
+<ng-template #forgot>
+ <div class="d-flex mb-3">
+    <button class="btn btn-danger" (click)="redirect.emit('login')">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+  </div>
+  <h2 class="card-title fw-bolder mb-2">FORGOT PASSWORD ?</h2>
+  <p class="text-muted mb-1" style="font-size: 18px; text-indent: 3px">
+    DON'T WORRY
+  </p>
+  <div [formGroup]="formulario" class="form-group">
+    <input
+      type="email"
+      class="input-field w-100 mb-3"
+      placeholder="name@example.com"
+      formControlName="email"
+    />
+  </div>
+  <div class="mt-2">
+    <div class="d-flex justify-content-end align-items-center">
+      <button
+        type="button"
+        class="btn btn-danger shadow bt-login"
+        (click)="Forgot(setIdReset)"
+      >
+        <span *ngIf="!carregando">Send Token</span>
+        <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>
+      </button>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #resetPassword>
+   <h2 class="card-title fw-bolder mb-2">EVERYTHING IS NEW</h2>
+   <div [formGroup]="formulario" class="form-group">
+     <input
+       type="password"
+       class="input-field w-100 mb-3"
+       placeholder="new password"
+       formControlName="senha"
+     />
+   </div>
+   <div class="mt-2">
+     <div class="d-flex justify-content-end align-items-center">
+       <button
+         type="button"
+         class="btn btn-danger shadow bt-login"
+         (click)="confirm()"
+       >
+       <span *ngIf="!carregando">Reset it</span>
+       <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>       </button>
+     </div>
+   </div>
+ </ng-template>
+
+<ng-template #setIdReset>
+  <div class="modal-header">
+    <div>
+      <h4 class="modal-title pull-left">Token</h4>
+      <p class="text-muted m-0">it's send to your email</p>
+    </div>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <input class="input-field w-100" type="text" placeholder="XXXX-XXXX-XXXX.#XXX">
+  </div>
+  <div class="modal-footer">
+    <button
+    type="button"
+    class="btn btn-danger shadow bt-login"
+    (click)="verifyToken()"
+  >
+    <span>Confirm</span>
+  </button>
+  </div>
+</ng-template>

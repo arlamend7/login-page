@@ -67,7 +67,7 @@ body {
 .aumentar:hover {
     font-size: 1.2rem;
 }
-.bt-login:active{
+.bt-login:active, .social-icon:hover{
     box-shadow: 1px 1px rgb(165 165 165);
     transform: translateX(2px) translateY(2px);
 }
@@ -86,4 +86,34 @@ body {
         display: none;
     }
     
+}
+
+.social-icon {
+    height: 2.3rem;
+    width: 2.3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.4rem;
+    color: #a64138 !important;
+    border-radius: 50%;
+    border: 1px solid rgb(255, 255, 255);
+    font-size: 1.1rem;
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 3px 3px#A5A5A5;
+    transition: all 0.5s ease-out;
+    cursor: pointer;
+}
+.social-icon:hover {
+    color: white !important;
+    border-color: white;
+    background-color: #a64138;
+}
+a {
+    text-decoration: none !important;
+}
+input:disabled{
+    background-color: lightgray;
+    border-radius: 10px;
 }

@@ -1,16 +1,16 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-import { LoginComponent } from "src/app/login/login.component";
+import { AuthComponent } from "src/app/auth/auth.component";
 
 const rotas: Routes = [
   {
-    path: "login",
-    component: LoginComponent,
+    path: "auth",
+    component: AuthComponent,
   },
   {
     path: "",
     pathMatch: "full",
-    redirectTo: "login",
+    redirectTo: "auth",
   },
 ];
 

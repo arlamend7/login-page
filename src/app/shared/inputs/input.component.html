@@ -1,0 +1,14 @@
+<form [formGroup]="formulario" class="form-group">
+  <input
+    [formControlName]="propriedade"
+    triggers="mouseenter:mouseleave"
+    [isOpen]="!!(campo?.value && campo?.errors)"
+    [popover]="regras"
+    [type]="type"
+    [ngClass]="{'border-danger text-danger': campo?.value && campo?.errors }"
+    class="input-field w-100"
+    [placeholder]="placeholder"
+    [mask]="mask"
+  />
+  <ng-content></ng-content>
+</form>
