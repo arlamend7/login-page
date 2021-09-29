@@ -1,0 +1,99 @@
+<div class="d-flex justify-content-center align-items-center mb-4">
+  <div
+    class="d-flex justify-content-center align-items-center"
+    style="
+      border: 2px solid black;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+    "
+  >
+  <i class="fas fa-download"></i>
+</div>
+  <div class="w-50" [formGroup]="formulario" style="margin-left: 15px">
+    <input
+      formControlName="userName"
+      type="type"
+      class="input-field w-100"
+      style="height: 30px"
+    />
+  </div>
+</div>
+<tabset type="pills" [justified]="true">
+  <tab>
+    <ng-template tabHeading> <i class="fas fa-user-circle"></i> </ng-template>
+    <div class="row">
+      <div class="input-group w-100">
+        <span class="input-group-text" id="basic-addon1">Nome</span>
+        <input type="text" class="input-field" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+      </div>
+      
+
+    </div>
+    <div class="row">
+      <app-input
+        type="email"
+        propriedade="email"
+        placeholder="email"
+        [formulario]="formulario"
+      ></app-input>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <div class="form-group mb-3">
+          <app-input
+            type="text"
+            propriedade="telefone"
+            [formulario]="formulario"
+            placeholder="(27) 99228-4737"
+            mask="(00) 00000-0000"
+          ></app-input>
+        </div>
+      </div>
+      <div class="col-12 col-sm-6">
+        <div [formGroup]="formulario" class="form-group mb-3">
+          <select
+            type="password"
+            class="input-field w-100"
+            formControlName="genero"
+          >
+            <option value="None" disabled selected hidden>
+              Choose Genre...
+            </option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="N">Não dizer</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center m-2">
+      <a class="social-icon disabled"><i class="fas fa-at"></i></a>
+      <a class="social-icon"><i class="fab fa-google"></i></a>
+      <a class="social-icon disabled"><i class="fab fa-facebook-f"></i></a
+      ><a class="social-icon disabled"><i class="fab fa-twitter"></i></a
+      ><a class="social-icon disabled"><i class="fab fa-github"></i></a>
+    </div>
+  </tab>
+  <tab [disabled]="true">
+    <ng-template tabHeading> <i class="fas fa-wallet"></i> </ng-template>
+  </tab>
+  <tab [disabled]="true">
+    <ng-template tabHeading> <i class="fas fa-id-card-alt"></i> </ng-template>
+  </tab>
+  <tab [disabled]="true">
+    <ng-template tabHeading>
+      <i class="fas fa-map-marked-alt"></i>
+    </ng-template>
+  </tab>
+</tabset>
+<div class="d-flex justify-content-end align-items-center border-top mt-3 pt-3">
+  <button
+    type="button"
+    class="btn btn-danger shadow bt-login"
+    (click)="saveInfo()"
+  >
+    <span *ngIf="!carregando">Update</span>
+    <i *ngIf="carregando" class="fas fa-spinner fa-pulse"></i>
+  </button>
+</div>

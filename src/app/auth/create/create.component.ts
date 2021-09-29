@@ -22,18 +22,27 @@ export class CreateComponent extends AuthBaseAction {
             telefone: ['', [Validators.required]],
             pais: ['+55', [Validators.required]],
             genero: ['None', [Validators.required]],
-            senhaRepeat : ['', [Validators.required,Validators.minLength(8)]]
+            senhaRepeat: ['', [Validators.required, Validators.minLength(8)]]
 
         })
     }
 
-    anotherStep() {
+    firstStepDisabled = null;
+    anotherStep(step: string) {
         this.redirect.emit('create')
 
         setTimeout(() => {
             this.createdUser = !this.createdUser;
             const control = this.formulario.get('email');
-            control.disabled ? control.enable() : control.disable()
+            if (this.firstStepDisabled == null) {
+                this.firstStepDisabled = control.disabled;
+            }
+            if (step == 'finish') {
+                control.disable()
+            }
+            if (step == 'start') {
+                this.firstStepDisabled ? control.disable() : control.enable()
+            }
         }, 700);
     }
     finish() {

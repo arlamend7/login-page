@@ -37,6 +37,9 @@
                   [formulario]="formulario"
                   (redirect)="animar($event)"
                 ></app-forgot>
+                <app-profile
+                  *ngSwitchCase="'profile'"
+                ></app-profile>
               </div>
             </div>
           </div>

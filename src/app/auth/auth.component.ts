@@ -16,7 +16,6 @@ import { AuthService } from "src/app/shared/services/auth.service";
 })
 export class AuthComponent implements OnInit {
   tela: string;
-  linkRedirect: string;
   permission: string;
   produtoId: string;
   formulario: FormGroup;
@@ -50,7 +49,6 @@ export class AuthComponent implements OnInit {
 
   getAllParams() {
     this.activatedRoute.queryParams.subscribe((obj) => {
-      this.linkRedirect = obj["link"];
       if (obj['email']) {
         const control = this.formulario.get("email")
         control.setValue(obj['email'])
@@ -67,14 +65,16 @@ export class AuthComponent implements OnInit {
     if (this.produtoId && this.permission) {
       this.modalRef = this.modalService.show(template);
     }
+    if (this.produtoId) {
+      window.open("");
+    }
     else {
-      window.open(this.linkRedirect);
+      this.animar('profile')
     }
   }
   confirmVinculo() {
-    window.open(this.linkRedirect);
+    
   }
-
   carregando = false;
   animation = true;
   animar(nomeTela: string) {

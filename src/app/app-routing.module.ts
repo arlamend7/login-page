@@ -16,7 +16,7 @@ const rotas: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(rotas)],
+  imports: [RouterModule.forRoot(rotas, { useHash: true })],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

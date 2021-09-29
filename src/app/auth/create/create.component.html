@@ -5,7 +5,7 @@
 <ng-template #startCreate>
   <div class="d-flex flex-column justify-content-center align-items-center">
     <h1 class="card-title fw-bolder mb-2">WELCOME</h1>
-    <p class="text-muted" style="font-size: 18px">Just fill the forms below.</p>
+    <p class="text-muted" style="font-size: 18px">Just fill the form below.</p>
   </div>
   <div [formGroup]="formulario">
     <div class="row mb-2">
@@ -42,7 +42,7 @@
   </div>
   <div class="mt-2 d-flex justify-content-start">
     <h6 class="text-muted p-0">
-      Already have?
+      Already have account?
       <a
         class="text-danger"
         style="cursor: pointer"
@@ -56,7 +56,7 @@
       <button
         type="button"
         class="btn btn-danger shadow bt-login"
-        (click)="anotherStep()"
+        (click)="anotherStep('finish')"
       >
         <span>Next</span>
       </button>
@@ -64,7 +64,7 @@
     <div
       class="
         d-flex
-        justify-content-between
+        justify-content-center justify-content-sm-between
         align-items-center
         border-top
         mt-3
@@ -81,18 +81,18 @@
 
 <ng-template #finishCreate>
   <div class="d-flex">
-    <button class="btn btn-danger" (click)="anotherStep()">
+    <button class="btn btn-danger" (click)="anotherStep('start')">
       <i class="fas fa-arrow-left"></i>
     </button>
   </div>
   <div class="d-flex flex-column justify-content-center align-items-center">
-    <p class="text-muted mb-1" style="font-size: 18px">Almost finish ...</p>
+    <p class="text-muted mb-1" style="font-size: 18px">Almost done ...</p>
   </div>
   <div class="row mb-2">
     <div class="col-12">
       <div class="form-group">
         <app-input
-          type="email"
+          type="text"
           propriedade="name"
           placeholder="Name"
           regras="deve conter, pelo menos: primeiro e ultimo nome"
@@ -113,41 +113,30 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-2">
-        <div class="form-group mb-3">
-          <app-input
-            type="text"
-            propriedade="pais"
-            [formulario]="formularioCriacao"
-            placeholder="+55"
-          ></app-input>
-        </div>
-      </div>
-      <div class="col-5">
+      <div class="col-6">
         <div class="form-group mb-3">
           <app-input
             type="text"
             propriedade="telefone"
             [formulario]="formularioCriacao"
-            placeholder="(27) 99228-4737"
+            placeholder="(00) 00000-0000"
             mask="(00) 00000-0000"
           ></app-input>
         </div>
       </div>
-      <div class="col-5">
+      <div class="col-6">
         <div [formGroup]="formularioCriacao" class="form-group mb-3">
           <select
             type="password"
             class="input-field w-100"
             formControlName="genero"
-            aria-placeholder="genero"
           >
             <option value="None" disabled selected hidden>
-                Genre...
+              Choose Genre...
             </option>
             <option value="M">Masculino</option>
             <option value="F">Feminino</option>
-            <option value="N">Não binario</option>
+            <option value="N">Não dizer</option>
           </select>
         </div>
       </div>

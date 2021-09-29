@@ -1,5 +1,4 @@
 import { NgModule } from "@angular/core";
-import { NgxSpinnerModule } from "ngx-spinner";
 import { AppRoutingModule } from "src/app/app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
@@ -19,9 +18,10 @@ import { InputComponent } from "src/app/shared/inputs/input.component";
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { SenhaMensagemComponent } from "src/app/shared/senha-mensagem/senha-mensagem.component";
 import { NgxMaskModule } from 'ngx-mask'
+import { ProfileComponent } from "src/app/auth/profile/profile.component";
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 const app = initializeApp(firebaseConfig);
-
 getAnalytics(app);
 
 @NgModule({
@@ -33,18 +33,19 @@ getAnalytics(app);
     ForgotComponent,
     CreateComponent,
     InputComponent,
-    SenhaMensagemComponent
+    SenhaMensagemComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule,
     AppRoutingModule,
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

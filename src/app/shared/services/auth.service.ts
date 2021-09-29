@@ -8,7 +8,6 @@ import {
     sendEmailVerification,
     signInWithPopup,
     signInWithCustomToken,
-    GoogleAuthProvider,
     Auth,
     AuthProvider
 } from "firebase/auth";
@@ -45,14 +44,14 @@ export class AuthService {
     }
     alreadyLogin(token: string) {
         signInWithCustomToken(this.auth, token)
-        .then((userCredential: UserCredential) => {
-            const user = userCredential.user;
-        })
+            .then((userCredential: UserCredential) => {
+                const user = userCredential.user;
+            })
     }
-    popUpLogin(authProvider : AuthProvider) {
+    popUpLogin(authProvider: AuthProvider) {
         signInWithPopup(this.auth, authProvider)
-        .then((userCredential: UserCredential) => {
-            const user = userCredential.user;
-        })
+            .then((userCredential: UserCredential) => {
+                const user = userCredential.user;
+            })
     }
 }

@@ -24,96 +24,117 @@ body {
 }
 
 .input-field {
-    background-color: transparent;
-    height: 60px;
-    border: none;
-    border-bottom: 1px solid #bebebe;
-    border-radius: 0;
-    padding: 0;
-    outline: 0 !important;
-    text-indent: 10px;
-    letter-spacing: 2px;
+  background-color: transparent;
+  height: 60px;
+  border: none;
+  border-bottom: 1px solid #bebebe;
+  border-radius: 0;
+  padding: 0;
+  outline: 0 !important;
+  text-indent: 10px;
+  letter-spacing: 2px;
 }
 .bt-login {
-    font-size: 20px !important; 
-    width: 150px;
-    transition: all 0.3s ease-out !important;
+  font-size: 20px !important;
+  width: 150px;
+  transition: all 0.3s ease-out !important;
 }
 .form-group {
-    position: relative;
+  position: relative;
 }
 .form-group > button {
-    height: 80%;
-    border: none;
-    position: absolute;
-    border-left : 1px solid rgba(255, 23, 23, 0.7);
-    border-radius: 0px;
-    color: rgba(255, 23, 23, 0.7);
-    right: 0;
-    width: 22%;
-    font-weight: 600;
-    align-self: center;
-    font-size: 1rem;
-    padding: 0px 0px !important;
-    background-color: transparent;
-    transition: 0.5s;
+  height: 80%;
+  border: none;
+  position: absolute;
+  border-left: 1px solid rgba(255, 23, 23, 0.7);
+  border-radius: 0px;
+  color: rgba(255, 23, 23, 0.7);
+  right: 0;
+  width: 22%;
+  font-weight: 600;
+  align-self: center;
+  font-size: 1rem;
+  padding: 0px 0px !important;
+  background-color: transparent;
+  transition: 0.5s;
 }
 .form-group > button:hover {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 .aumentar {
-    transition: 0.3s all;
+  transition: 0.3s all;
 }
 .aumentar:hover {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
-.bt-login:active, .social-icon:hover{
-    box-shadow: 1px 1px rgb(165 165 165);
-    transform: translateX(2px) translateY(2px);
+.bt-login:active,
+.social-icon:active {
+  box-shadow: 1px 1px rgb(165 165 165);
+  transform: translateX(2px) translateY(2px);
 }
-@media screen and (max-width : 500px){
-    .form-group > button {
-        width: 28%;
-    }
-    .bt-login {
-        width: 100%;
-    }
-    .card-body{
-        padding: 0px !important;
-    }
-    h1,
-    p {
-        display: none;
-    }
-    
+@media screen and (max-width: 500px) {
+  .form-group > button {
+    width: 28%;
+  }
+  .bt-login {
+    width: 100%;
+  }
+  .card-body {
+    padding: 0px !important;
+  }
+  h1,
+  p {
+    display: none;
+  }
 }
 
 .social-icon {
-    height: 2.3rem;
-    width: 2.3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 0.4rem;
-    color: #a64138 !important;
-    border-radius: 50%;
-    border: 1px solid rgb(255, 255, 255);
-    font-size: 1.1rem;
-    transition: 0.3s;
-    background-color: white;
-    box-shadow: 3px 3px#A5A5A5;
-    transition: all 0.5s ease-out;
-    cursor: pointer;
+  height: 2.3rem;
+  width: 2.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 0.4rem;
+  color: #dc3545;
+  border-radius: 50%;
+  border: 1px solid rgb(255, 255, 255);
+  font-size: 1.1rem;
+  transition: 0.3s;
+  background-color: white;
+  box-shadow: 3px 3px#A5A5A5;
+  transition: all 0.5s ease-out;
+  cursor: pointer;
+}
+.social-icon.disabled {
+  box-shadow: none;
+  color: lightgray !important;
+  border: 2px solid lightgray;
 }
 .social-icon:hover {
-    color: white !important;
-    border-color: white;
-    background-color: #a64138;
+  color: white !important;
+  border-color: white;
+  background-color: #dc3545;
 }
 a {
-    text-decoration: none !important;
+  text-decoration: none !important;
 }
-input:disabled{
-    background-color: lightgray;
-    border-radius: 10px;
+input:disabled {
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.nav-link,
+.nav-link:active,
+.nav-link:focus {
+  color: #dc3545;
+}
+.nav-link:hover {
+  color: #8d131f;
+}
+.nav-link.active {
+  color: #fff;
+  background-color: #dc3545 !important;
+}
+.tab-content {
+    margin-top: 10px;
 }
