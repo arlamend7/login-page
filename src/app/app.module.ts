@@ -18,8 +18,11 @@ import { InputComponent } from "src/app/shared/inputs/input.component";
 import { PopoverModule } from 'ngx-bootstrap/popover';
 import { SenhaMensagemComponent } from "src/app/shared/senha-mensagem/senha-mensagem.component";
 import { NgxMaskModule } from 'ngx-mask'
-import { ProfileComponent } from "src/app/auth/profile/profile.component";
+import { ProfileComponent } from "src/app/user/profile/profile.component";
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { UserComponent } from "src/app/user/user.component";
+import { FotographNicknameComponent } from "src/app/user/fotograph-nickname/fotograph-nickname.component";
+import { TabInfoComponent } from "src/app/user/info/info.component";
 
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
@@ -34,7 +37,10 @@ getAnalytics(app);
     CreateComponent,
     InputComponent,
     SenhaMensagemComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserComponent,
+    FotographNicknameComponent,
+    TabInfoComponent
   ],
   imports: [
     CommonModule,

@@ -1,88 +1,69 @@
-<div class="container-fluid p-0 h-100">
-  <div class="h-100">
-    <div
-      style="background-image: url(assets/{{ image }});
-        background-size: cover;
-    background-repeat: no-repeat;
-    background-clip: content-box;"
-      class="h-100"
-    ></div>
-    <div class="card-img-overlay">
-      <div class="row h-100">
-        <div class="col-sm-6 col-md-4 col-lg-6"></div>
-        <div class="col-md-6 col-lg-5 col-lx-4">
-          <div
-            class="d-flex justify-content-center align-items-center h-100 w-100"
-          >
-            <div
-              class="card w-100 p-lg-3 p-md-2 p-sm-1 p-3"
-              style="border-radius: 15px"
-              [@photoState]="animation ? '' : 'spin'"
-            >
-              <div [ngSwitch]="tela" class="card-body h-100 m-2 pb-0">
-                <app-login
-                  *ngSwitchCase="'login'"
-                  [formulario]="formulario"
-                  (finishAction)="finish(verification)"
-                  (redirect)="animar($event)"
-                ></app-login>
-                <app-create
-                  *ngSwitchCase="'create'"
-                  [formulario]="formulario"
-                  (finishAction)="finish(verification)"
-                  (redirect)="animar($event)"
-                ></app-create>
-                <app-forgot
-                  *ngSwitchCase="'forgot'"
-                  [formulario]="formulario"
-                  (redirect)="animar($event)"
-                ></app-forgot>
-                <app-profile
-                  *ngSwitchCase="'profile'"
-                ></app-profile>
-              </div>
-            </div>
-          </div>
+<div class="row h-100">
+  <div class="col-sm-6 col-md-4 col-lg-6"></div>
+  <div class="col-md-6 col-lg-5 col-lx-4">
+    <div class="d-flex justify-content-center align-items-center h-100 w-100">
+      <div
+        class="card w-100 p-lg-3 p-md-2 p-sm-1 p-3"
+        style="border-radius: 15px"
+        [@photoState]="animation ? '' : 'spin'"
+      >
+        <div [ngSwitch]="tela" class="card-body h-100 m-2 pb-0">
+          <app-login
+            *ngSwitchCase="'login'"
+            [formulario]="formulario"
+            (finishAction)="finish(verification)"
+            (redirect)="animar($event)"
+          ></app-login>
+          <app-create
+            *ngSwitchCase="'create'"
+            [formulario]="formulario"
+            (finishAction)="finish(verification)"
+            (redirect)="animar($event)"
+          ></app-create>
+          <app-forgot
+            *ngSwitchCase="'forgot'"
+            [formulario]="formulario"
+            (redirect)="animar($event)"
+          ></app-forgot>
         </div>
-        <div class="col-md-2 col-lg-1"></div>
       </div>
     </div>
   </div>
-</div>
-<div class="position-absolute aumentar" style="bottom: 5px; left: 20px">
-  <a
-    href="https://www.linkedin.com/in/arlan-mendes-b190a717b/"
-    style="text-decoration: none; color: rgb(255, 60, 60)"
-    ><p class="small">
-      <span class="text-white">© Create by: </span>dev.arlan
-    </p></a
-  >
+  <div class="col-md-2 col-lg-1"></div>
 </div>
 
 <ng-template #verification>
   <div class="modal-header">
     <div>
-      <h4 class="modal-title pull-left"> <i class="fas fa-user-shield"></i> Vincular</h4>
+      <h4 class="modal-title pull-left">
+        <i class="fas fa-user-shield"></i> Vincular
+      </h4>
     </div>
-    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body">
     <div class="d-flex flex-column text-muted">
-      <p>Empresa: <span class="fw-bolder">Prefeitura de vila velha</span> </p>
-      <p>Produto: <span class="fw-bolder">Gestão de afastamentos</span> </p>
-      <p>Permissão: <span class="fw-bolder">{{permission}}</span> </p>
+      <p>Empresa: <span class="fw-bolder">Prefeitura de vila velha</span></p>
+      <p>Produto: <span class="fw-bolder">Gestão de afastamentos</span></p>
+      <p>
+        Permissão: <span class="fw-bolder">{{ permission }}</span>
+      </p>
     </div>
   </div>
   <div class="modal-footer">
     <button
-    type="button"
-    class="btn btn-danger shadow bt-login"
-    (click)="confirmVinculo()"
-  >
-    <span>Confirm</span>
-  </button>
+      type="button"
+      class="btn btn-danger shadow bt-login"
+      (click)="confirmVinculo()"
+    >
+      <span>Confirm</span>
+    </button>
   </div>
- 
 </ng-template>

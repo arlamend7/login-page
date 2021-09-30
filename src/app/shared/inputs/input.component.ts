@@ -5,11 +5,13 @@ import { AbstractControl, FormGroup } from "@angular/forms";
     selector: "app-input",
     templateUrl: 'input.component.html'
 })
-export class InputComponent implements OnInit{
+export class InputComponent implements OnInit {
     campo: AbstractControl;
     ngOnInit(): void {
         this.campo = this.formulario.get(this.propriedade);
     }
+    @Input() classIcon: string;
+    @Input() label: string;
     @Input() type: string;
     @Input() placeholder: string = "";
     @Input() formulario: FormGroup;

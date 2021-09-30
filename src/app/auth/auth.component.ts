@@ -4,7 +4,7 @@ import {
 } from "@angular/animations";
 import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { timer } from "rxjs";
 import { spin } from "src/app/animations/spin.animation";
@@ -20,20 +20,9 @@ export class AuthComponent implements OnInit {
   produtoId: string;
   formulario: FormGroup;
 
-  get Image() {
-    const obj = {
-      0: "secury.gif",
-      1: "secury.gif",
-      2: "players.gif",
-      3: "mario.gif",
-      4: "house.gif",
-    };
-    var value = Math.round(Math.random() * 4);
-    return obj[value];
-  }
-  image: string = this.Image;
   constructor(private readonly activatedRoute: ActivatedRoute,
     private readonly modalService: BsModalService,
+    private readonly route: Router,
     private readonly formBuilder: FormBuilder) {
     this.formulario = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email, Validators.pattern(/\w+@\w+\.\w{2,}/)]],
@@ -69,11 +58,11 @@ export class AuthComponent implements OnInit {
       window.open("");
     }
     else {
-      this.animar('profile')
+      this.route.navigate(["profile"])
     }
   }
   confirmVinculo() {
-    
+
   }
   carregando = false;
   animation = true;

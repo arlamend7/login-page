@@ -1,12 +1,16 @@
-<form [formGroup]="formulario" class="form-group">
+<form [formGroup]="formulario" class="input-group">
+  <span *ngIf="label || classIcon" class="input-group-text" id="basic-addon1">
+    <i [class]="classIcon"></i>{{
+    label
+  }}</span>
   <input
     [formControlName]="propriedade"
     triggers="mouseenter:mouseleave"
     [isOpen]="!!(campo?.value && campo?.errors)"
     [popover]="regras"
     [type]="type"
-    [ngClass]="{'border-danger text-danger': campo?.value && campo?.errors }"
-    class="input-field w-100"
+    [ngClass]="{ 'border-danger text-danger': campo?.value && campo?.errors }"
+    class="input-field form-control"
     [placeholder]="placeholder"
     [mask]="mask"
   />

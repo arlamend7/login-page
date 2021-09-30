@@ -23,7 +23,8 @@ body {
   }
 }
 
-.input-field {
+.input-field,
+.input-field.form-control {
   background-color: transparent;
   height: 60px;
   border: none;
@@ -33,15 +34,24 @@ body {
   outline: 0 !important;
   text-indent: 10px;
   letter-spacing: 2px;
+  box-shadow: none;
+}
+.input-group-text {
+  font-weight: 700;
+  border-right: none;
+  border-color: #bebebe;
+  background-color: transparent;
 }
 .bt-login {
   font-size: 20px !important;
   width: 150px;
   transition: all 0.3s ease-out !important;
 }
-.form-group {
+.form-group,
+.input-group {
   position: relative;
 }
+.input-group > button,
 .form-group > button {
   height: 80%;
   border: none;
@@ -58,6 +68,7 @@ body {
   background-color: transparent;
   transition: 0.5s;
 }
+.input-group > button:hover,
 .form-group > button:hover {
   font-size: 1.2rem;
 }
@@ -136,5 +147,5 @@ input:disabled {
   background-color: #dc3545 !important;
 }
 .tab-content {
-    margin-top: 10px;
+  margin-top: 10px;
 }
