@@ -4,14 +4,14 @@ import { FormGroup } from "@angular/forms";
 @Component({
     selector: "app-fotograph-nickname",
     template: `
-    <div class="d-flex justify-content-center align-items-center mb-4">
+    <div class="d-flex justify-content-center align-items-center">
             <div
               class="d-flex justify-content-center align-items-center"
               style="
                 border: 2px solid black;
                 border-radius: 50%;
-                height: 50px;
-                width: 50px;
+                height: 70px;
+                width: 70px;
               "
             >
               <i class="fas fa-image"></i>
