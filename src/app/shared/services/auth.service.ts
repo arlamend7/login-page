@@ -1,57 +1,22 @@
 import { Injectable } from "@angular/core";
-import {
-    getAuth,
-    UserCredential,
-    signInWithEmailAndPassword,
-    createUserWithEmailAndPassword,
-    sendPasswordResetEmail,
-    sendEmailVerification,
-    signInWithPopup,
-    signInWithCustomToken,
-    Auth,
-    AuthProvider
-} from "firebase/auth";
+import { HttpClient , HttpHeaders } from "@angular/common/http"
 
 
 @Injectable({ providedIn: "root" })
 export class AuthService {
-    auth: Auth
-    constructor() {
-        this.auth = getAuth()
+    private readonly url = "http://localhost:5000/users/";
+    constructor(private readonly http : HttpClient ) {
     }
 
-    async SignIn(email: string, senha: string) {
-        return signInWithEmailAndPassword(this.auth, email, senha).then(
-            (userCredential: UserCredential) => {
-                const user = userCredential.user;
-                console.log(user.uid);
-            }
-        );
+    Insert(obj : any){
+        return this.http.post(this.url,obj);
     }
-    async CreateUser(email: string, senha: string) {
-        return createUserWithEmailAndPassword(this.auth, email, senha)
-            .then(
-                (userCredential: UserCredential) => {
-                    const user = userCredential.user;
-                    sendEmailVerification(user).then(() => {
-
-                    })
-                }
-            )
+    Exists(email : string){
+        return this.http.get(this.url, {params : {email}});
     }
-    Forgot(email: string) {
-        return sendPasswordResetEmail(this.auth, email)
-    }
-    alreadyLogin(token: string) {
-        signInWithCustomToken(this.auth, token)
-            .then((userCredential: UserCredential) => {
-                const user = userCredential.user;
-            })
-    }
-    popUpLogin(authProvider: AuthProvider) {
-        signInWithPopup(this.auth, authProvider)
-            .then((userCredential: UserCredential) => {
-                const user = userCredential.user;
-            })
+    Login(uid : string){
+        var headers = new HttpHeaders();
+        headers.append("uid", uid);
+        return this.http.head(this.url, {headers});
     }
 }

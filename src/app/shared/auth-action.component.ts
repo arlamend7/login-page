@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core"
 import { FormGroup } from "@angular/forms"
-import { AuthService } from "src/app/shared/services/auth.service"
+import { AuthFirebaseService } from "src/app/shared/services/auth.firebase.service"
+import { AuthService } from "./services/auth.service"
 
 @Component({
     template: ''
@@ -11,5 +12,6 @@ export abstract class AuthBaseAction {
     @Output() finishAction = new EventEmitter<void>()
 
     carregando: boolean
-    constructor(protected readonly authService: AuthService) { }
+    constructor(protected readonly authFirebaseService: AuthFirebaseService,
+                protected readonly authService : AuthService) { }
 }

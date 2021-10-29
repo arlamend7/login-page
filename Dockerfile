@@ -2,7 +2,7 @@
 FROM node:latest AS build
 WORKDIR /usr/src/app
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --silent
 COPY . .
 RUN npm run build
 ### STAGE 2: Run ###

@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 import { BsModalRef, BsModalService } from "ngx-bootstrap/modal";
 import { timer } from "rxjs";
 import { spin } from "src/app/animations/spin.animation";
-import { AuthService } from "src/app/shared/services/auth.service";
+import { AuthFirebaseService } from "src/app/shared/services/auth.firebase.service";
 
 @Component({
   templateUrl: "auth.component.html",

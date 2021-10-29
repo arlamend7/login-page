@@ -149,3 +149,6 @@ input:disabled {
 .tab-content {
   margin-top: 10px;
 }
+select {
+  box-shadow: none !important;
+}

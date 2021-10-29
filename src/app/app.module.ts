@@ -23,6 +23,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UserComponent } from "src/app/user/user.component";
 import { FotographNicknameComponent } from "src/app/user/fotograph-nickname/fotograph-nickname.component";
 import { TabInfoComponent } from "src/app/user/info/info.component";
+import { HttpClientModule } from "@angular/common/http";
 
 const app = initializeApp(firebaseConfig);
 getAnalytics(app);
@@ -51,7 +52,8 @@ getAnalytics(app);
     ModalModule.forRoot(),
     PopoverModule.forRoot(),
     NgxMaskModule.forRoot(),
-    TabsModule.forRoot()
+    TabsModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
